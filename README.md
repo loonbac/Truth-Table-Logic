@@ -8,46 +8,48 @@ La lógica booleana es una forma de algebra que se utiliza en computación y mat
 Esta operación invierte el valor. Si el valor es 1, devuelve 0, y si es 0, devuelve 1.
 
 ```python
-# Si el Valor es 1
-    if valor == 1:
-        # Devolver 0
-        return 0
-# Si el Valor es 0
-    elif valor == 0:
-        # Devolver 1
-        return 1
+    # Validar que el valor proporcionado sea binario (0 o 1)
+    validar_binario(valor)
+    # Restar el valor a 1 para calcular su NOT lógico
+    # Si valor es 1, devolver 0
+    # Si valor es 0, devolver 1
+    return 1 - valor
+
 ```
 
 ## 2. AND:
  Esta operación devuelve 1 solo si ambos valores son 1. Si alguno de los valores es 0.
 
 ```python
-# Si el Valor del Bit 1 es igual a 0 o 1 y si el Valor del Bit 2 es igual a 0 o 1 entonces
-    if (var1 == 0 or var1 == 1) and (var2 == 0 or var2 == 1):
-        # Si el Valor del Bit 1 es igual a 1 y el Valor del Bit 2 es igual a 1 
-        if var1 == 1 and var2 == 1:
-            # Devolver 1
-            return 1
-        # Sino
-        else:
-            # Devolver 0
-            return 0
+    # Validar que ambos valores proporcionados sean binarios (0 o 1)
+    validar_binario(var1, var2)
+    # Usar la operación AND bit a bit (&) para calcular el resultado
+    # Si ambos valores son 1, devolver 1
+    # En cualquier otro caso, devolver 0
+    return var1 & var2
 ```
 
 ## 3. OR:
  Esta operación devuelve 1 si al menos uno de los valores es 1. Solo devuelve 0 si ambos valores son 0.
 
 ```python
-# Si el Valor del Bit 1 es igual a 0 o 1 y si el Valor del Bit 2 es igual a 0 o 1 entonces
-    if (var1 == 0 or var1 == 1) and (var2 == 0 or var2 == 1):
-        # Si el Valor del Bit 1 es igual a 0 y el Valor del Bit 2 es igual a 0 
-        if var1 == 0 and var2 == 0:
-            # Devolver 0
-            return 0
-        # Sino
-        else:
-            # Devolver 1
-            return 1
+    # Validar que ambos valores proporcionados sean binarios (0 o 1)
+    validar_binario(var1, var2)
+    # Usar la operación OR bit a bit (|) para calcular el resultado
+    # Si al menos uno de los valores es 1, devolver 1
+    # Si ambos valores son 0, devolver 0
+    return var1 | var2
+```
+## 4. Funcion de Validacion
+La función validar_binario centraliza la validación, lo que reduce la repetición.
+
+```python
+    # Iterar sobre todos los valores proporcionados
+    for valor in valores:
+        # Si el valor no es 0 o 1
+        if valor not in (0, 1):
+            # Lanzar un error indicando que los valores deben ser binarios
+            raise ValueError("Todos los valores deben ser 0 o 1.")
 ```
 
 ## License
